@@ -20,7 +20,7 @@ const server = http.createServer(app);
 // Socket.IO setup
 const io = new Server(server, {
     cors: {
-        origin: "*",
+        origin: "https://chatapp-frontend-zam4.onrender.com",
         methods: ["GET", "POST"],
     },
 });
