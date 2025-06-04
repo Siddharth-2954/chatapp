@@ -29,7 +29,7 @@ const Users = () => {
         setError("");
         console.log("Fetching users with token:", auth.token);
         
-        const response = await fetch("http://localhost:3000/api/users", {
+        const response = await fetch("https://chatapp-backend-6644.onrender.com/api/users", {
           headers: {
             Authorization: `Bearer ${auth.token}`,
           },
@@ -64,7 +64,7 @@ const Users = () => {
 
   const handleStartChat = async (userId) => {
     try {
-      const response = await fetch("http://localhost:3000/api/chats", {
+      const response = await fetch("https://chatapp-backend-6644.onrender.com/api/chats", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -97,7 +97,7 @@ const Users = () => {
 
     try {
       // First, find the user by email
-      const response = await fetch(`http://localhost:3000/api/users/email/${email}`, {
+      const response = await fetch(`https://chatapp-backend-6644.onrender.com/api/users/email/${email}`, {
         headers: {
           Authorization: `Bearer ${auth.token}`,
         },
@@ -129,7 +129,7 @@ const Users = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/chats/group", {
+      const response = await fetch("https://chatapp-backend-6644.onrender.com/api/chats/group", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

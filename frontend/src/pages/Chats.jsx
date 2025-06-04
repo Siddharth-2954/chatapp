@@ -24,7 +24,7 @@ const Chats = () => {
       setLoading(true);
       setError("");
 
-      const response = await fetch("http://localhost:3000/api/chats", {
+      const response = await fetch("https://chatapp-backend-6644.onrender.com/api/chats", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${auth.token}`,

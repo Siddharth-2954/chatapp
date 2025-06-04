@@ -1,4 +1,3 @@
-// src/components/Message/MessageItem.jsx
 const MessageItem = ({ message }) => {
   return (
     <div>

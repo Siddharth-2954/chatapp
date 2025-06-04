@@ -27,7 +27,7 @@ const ChatWindow = ({ chat, auth, otherUser }) => {
       setLoading(true);
       setError(null);
       const response = await fetch(
-        `http://localhost:3000/api/chats/${chat._id}/messages`,
+        `https://chatapp-backend-6644.onrender.com/api/chats/${chat._id}/messages`,
         {
           headers: {
             Authorization: `Bearer ${auth.token}`,
@@ -83,7 +83,7 @@ const ChatWindow = ({ chat, auth, otherUser }) => {
         formData.append("file", selectedFile);
       }
 
-      const response = await fetch("http://localhost:3000/api/chats/messages", {
+      const response = await fetch("https://chatapp-backend-6644.onrender.com/api/chats/messages", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${auth.token}`,
@@ -140,7 +140,7 @@ const ChatWindow = ({ chat, auth, otherUser }) => {
 
         const fileUrl = message.file.startsWith('http') 
           ? message.file 
-          : `http://localhost:3000${message.file}`;
+          : `https://chatapp-backend-6644.onrender.com${message.file}`;
         
         const isImage = /\.(jpg|jpeg|png|gif|webp)$/i.test(message.file);
         

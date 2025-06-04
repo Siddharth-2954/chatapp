@@ -7,7 +7,7 @@ const Profile = () => {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const res = await fetch("http://localhost:3000/api/auth/profile", {
+      const res = await fetch("https://chatapp-backend-6644.onrender.com/api/auth/profile", {
         headers: { Authorization: `Bearer ${auth.token}` },
       });
       const data = await res.json();
@@ -19,7 +19,7 @@ const Profile = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3000/api/users/profile", {
+    const res = await fetch("https://chatapp-backend-6644.onrender.com/api/users/profile", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

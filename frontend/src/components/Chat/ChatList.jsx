@@ -1,4 +1,3 @@
-// src/components/Chat/ChatList.jsx
 const ChatList = ({ chats, onSelectChat }) => {
   return (
     <div>

@@ -1,4 +1,3 @@
-// src/components/UserSearch.jsx
 import { useState } from "react";
 
 const UserSearch = ({ onSearch }) => {
