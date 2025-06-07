@@ -137,8 +137,10 @@ const Chats = () => {
 
   return (
     <div className="h-[calc(100vh-4rem)] mt-16 flex overflow-hidden">
-      {/* Sidebar */}
-      <div className="w-1/4 border-r border-gray-200 bg-white flex flex-col">
+      {/* Sidebar - Hidden on mobile when chat is selected */}
+      <div className={`${
+        selectedChat ? 'hidden md:block' : 'block'
+      } w-full md:w-1/4 border-r border-gray-200 bg-white flex flex-col`}>
         <div className="p-4 border-b border-gray-200">
           <h2 className="text-xl font-semibold text-gray-800">Chats</h2>
         </div>
@@ -186,13 +188,29 @@ const Chats = () => {
       </div>
 
       {/* Chat Window */}
-      <div className="flex-1 bg-gray-50 flex flex-col">
+      <div className={`${
+        selectedChat ? 'block' : 'hidden md:block'
+      } flex-1 bg-gray-50 flex flex-col`}>
         {selectedChat ? (
-          <ChatWindow
-            chat={selectedChat}
-            auth={auth}
-            otherUser={getOtherUser(selectedChat)}
-          />
+          <>
+            {/* Back button for mobile */}
+            <div className="md:hidden bg-white border-b border-gray-200 p-4">
+              <button
+                onClick={() => setSelectedChat(null)}
+                className="flex items-center text-gray-600 hover:text-blue-600"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Chats
+              </button>
+            </div>
+            <ChatWindow
+              chat={selectedChat}
+              auth={auth}
+              otherUser={getOtherUser(selectedChat)}
+            />
+          </>
         ) : (
           <div className="h-full flex items-center justify-center">
             <p className="text-gray-500">Select a chat to start messaging</p>
